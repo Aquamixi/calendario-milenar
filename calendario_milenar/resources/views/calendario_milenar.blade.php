@@ -67,8 +67,20 @@
                                         <br>
                                         
                                         <span hidden>
-                                            {{$qtde_dias = $last_day->diffInDays($dias)}}
-                                            {{$qtde_mils = (substr($qtde_dias, 0, 1) * 1000)}}
+                                            @php
+                                                //diferença de dias entre hoje e o ultimo dia do ciclo
+                                                $qtde_dias = Carbon\Carbon::parse($dias)->diffInDays($last_day);
+
+                                                //centena milenar ou maior
+                                                $unidade = strlen($qtde_dias);
+
+                                                $casa = substr($qtde_dias, 0, -3);
+
+                                                //cria a quantidade de zeros a ser subtraido
+                                                $quantidade_certa_zeros = '000';
+
+                                                $qtde_mils = $casa . $quantidade_certa_zeros;
+                                            @endphp
                                         </span>
                                         @if ($qtde_dias - $qtde_mils == 0)
                                             Mil: 1000

@@ -19,7 +19,7 @@ class CalendarioController extends Controller
         $today = Carbon::today();
         $today_time = strtotime('today');
 
-        $first_day = Carbon::createFromDate('2007-05-02');
+        $first_day = Carbon::createFromDate('1979-12-15');
         $last_day = $first_day->addDays(1000);
 
         $qtde_dias = $last_day->diffInDays($today);
@@ -28,7 +28,7 @@ class CalendarioController extends Controller
 
         $dia_de_hoje = $qtde_dias - $mils;
 
-        return view('calendario_milenar', compact('today_time', 'time', 'dia_de_hoje', 'today', 'mils', 'last_day'));
+        return view('calendario_milenar', compact('today_time', 'time', 'dia_de_hoje', 'today', 'mils', 'last_day', 'first_day'));
     }
 
     public static function prevMonth($time){
