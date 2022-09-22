@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\CalendarioController::class, 'calendario_milenar']);
 
 Route::get('calendario_milenar', [App\Http\Controllers\CalendarioController::class, 'calendario_milenar']);
