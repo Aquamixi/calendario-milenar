@@ -60,6 +60,8 @@
                                     </span>
                                     @if (date('Y-m', $startDate) !== date('Y-m', $monthTime))
                                         <td style="height: 50px; width: 50px;" class="text-muted">
+                                    @elseif($startDate === strtotime('today'))
+                                        <td style="height: 50px; width: 50px; background-color: lightblue">
                                     @else
                                         <td style="height: 50px; width: 50px;">
                                     @endif
